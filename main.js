@@ -19,13 +19,13 @@ function decode(s) {
 
 function encode(n) {
     let result = '';
-    weights.forEach(w => {
-        while (n >= w) {
+    for (let i = 0; i < weights.length; i++) {
+        while (n >= weights[i]) {
             result += symbols[i];
-            n -= w;
+            n -= weights[i];
         }
-        if (n == 0)
+        if (n === 0)
             break;
-    });
+    }
     return result;
 }
